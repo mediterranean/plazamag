@@ -1,0 +1,10 @@
+{% extends "base/base.html" %}
+{% block gossips_active %}active{% endblock %}
+{% block content %}
+    {% for gossip in gossips %}
+        {{ gossip.title }} {{ gossip.age }}
+        <br>
+        {{ gossip.explanation }}
+        <hr>
+    {% endfor %}
+{% endblock %}

@@ -1,4 +1,35 @@
 {% extends "base/base.html" %}
+{% block new_gossip_active %}active{% endblock %}
 {% block content %}
-    new gossip
+    <div>
+        Yeni Dedikodu Yaz!!!1!bir
+    </div>
+
+    <div class="row">
+        <form id="newGossip" class="form-horizontal" role="form" method="post">
+            {% csrf_token %}
+            {% for error in form.errors %}
+                {{ error }}
+            {% endfor %}
+            <div class="input-group-addon">
+                <div>
+                    <input id="{{ form.title.auto_id }}" name="{{ form.title.name }}" type="text" class="form-control" placeholder="Başlık">
+                    <input id="{{ form.age.auto_id }}" name="{{ form.age.name }}" type="number" class="form-control" placeholder="Yaş">
+                </div>
+                <div>
+                    <input id="{{ form.company.auto_id }}" name="{{ form.company.name }}" type="text" class="form-control" placeholder="Şirket">
+                </div>
+                    <input id="{{ form.location.auto_id }}" name="{{ form.location.name }}" type="text" class="form-control" placeholder="Lokasyon">
+                <br>
+                <div>
+                    <textarea id="{{ form.explanation.auto_id }}" name="{{ form.explanation.name }}" class="form-control" placeholder="Dedikodu..." rows="6"></textarea>
+                </div>
+                <br>
+            </div>
+            <div class="btn-group-justified">
+                <button id="submit" type="submit" class="btn-lg">Yolla Gitsin</button>
+                <button id="cancel" type="cancel" class="btn-lg">Vazgeçtim</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

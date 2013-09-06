@@ -16,7 +16,7 @@ class Gossip(models.Model):
     company = models.ForeignKey(Company)
     nickname = models.TextField(default="Anonim")
     age = models.IntegerField()
-    gender = models.IntegerField()
+    gender = models.IntegerField(default=0, blank=True)
     location = models.TextField()
     is_active = models.BooleanField(default=True)
 
